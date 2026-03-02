@@ -24,19 +24,19 @@ If you use another combo, it must match your script config later.
 ### Ubuntu / Debian
 ```bash
 sudo apt update
-sudo apt install python3 python3-pip xdotool evtest
+sudo apt install python3 python3-pip xdotool evtest rofi libnotify-bin
 pip3 install --user evdev
 ```
 
 ### Fedora
 ```bash
-sudo dnf install python3 python3-pip xdotool evtest
+sudo dnf install python3 python3-pip xdotool evtest rofi libnotify
 pip3 install --user evdev
 ```
 
 ### Arch
 ```bash
-sudo pacman -S python python-pip xdotool evtest
+sudo pacman -S python python-pip xdotool evtest rofi libnotify
 pip install --user evdev
 ```
 
@@ -100,14 +100,7 @@ Make it executable:
 chmod +x ~/.config/ptt/discord-ptt.py
 ```
 
-## 8) Test it manually
-```bash
-python3 ~/.config/ptt/discord-ptt.py
-```
-
-Join a Discord voice channel and hold your mouse side button to test.
-
-## 9) Auto-start at login (systemd user service)
+## 8) Auto-start at login (systemd user service)
 Create `~/.config/systemd/user/discord-ptt.service`:
 
 ```ini
@@ -130,6 +123,23 @@ systemctl --user daemon-reload
 systemctl --user enable --now discord-ptt.service
 ```
 
+## 9) Optional Rofi menu (non-Nix users)
+This repo includes `RofiPTT.sh`.
+
+Copy and run it:
+
+```bash
+mkdir -p ~/.config/ptt
+cp ./RofiPTT.sh ~/.config/ptt/RofiPTT.sh
+chmod +x ~/.config/ptt/RofiPTT.sh
+~/.config/ptt/RofiPTT.sh
+```
+
+What it does:
+- Start/stop/restart `discord-ptt.service`
+- Set Discord keybind (preset or custom)
+- Show current saved keybind
+
 ## 10) Troubleshooting
 1. Confirm Discord keybind matches `DISCORD_SHORTCUT` in your config.
 2. Check logs:
@@ -143,4 +153,3 @@ journalctl --user -u discord-ptt.service -f
 ```bash
 discord --enable-features=UseOzonePlatform --ozone-platform=x11
 ```
-# Dicord-PPT-Linux
