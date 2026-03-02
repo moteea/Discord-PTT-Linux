@@ -191,3 +191,6 @@ journalctl --user -u discord-ptt.service -f
 ```bash
 discord --enable-features=UseOzonePlatform --ozone-platform=x11
 ```
+
+## 12) License
+MIT. See [LICENSE](./LICENSE).
