@@ -143,3 +143,4 @@ journalctl --user -u discord-ptt.service -f
 ```bash
 discord --enable-features=UseOzonePlatform --ozone-platform=x11
 ```
+# Dicord-PPT-Linux
