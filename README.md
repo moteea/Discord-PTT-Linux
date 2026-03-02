@@ -123,7 +123,38 @@ systemctl --user daemon-reload
 systemctl --user enable --now discord-ptt.service
 ```
 
-## 9) Optional Rofi menu (non-Nix users)
+## 9) Nix / Home Manager setup
+This repo includes a Home Manager module:
+
+`./discord-ptt-home-manager.nix`
+
+Add it to your Home Manager config, for example:
+
+```nix
+{
+  imports = [
+    ./discord-ptt-home-manager.nix
+  ];
+}
+```
+
+Then edit your generated config values in:
+
+- `~/.config/ptt/config.json`
+
+Important:
+- Replace `DEVICE_PATH` (`/dev/input/eventX`) with your real input device.
+- Replace `PTT_CODE` with your mouse side-button code from `evtest`.
+
+Apply Home Manager:
+
+```bash
+home-manager switch
+```
+
+This module installs dependencies, writes the PTT scripts, and enables the user service.
+
+## 10) Optional Rofi menu (non-Nix users)
 This repo includes `RofiPTT.sh`.
 
 Copy and run it:
@@ -140,7 +171,7 @@ What it does:
 - Set Discord keybind (preset or custom)
 - Show current saved keybind
 
-## 10) Troubleshooting
+## 11) Troubleshooting
 1. Confirm Discord keybind matches `DISCORD_SHORTCUT` in your config.
 2. Check logs:
 
