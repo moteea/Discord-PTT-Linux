@@ -261,5 +261,5 @@ discord --enable-features=UseOzonePlatform --ozone-platform=x11
 
 4. If the service starts but does not react to button presses, confirm your user can read the chosen input device.
 
-## 12) License
+## License
 MIT. See [LICENSE](./LICENSE).
