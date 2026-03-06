@@ -67,7 +67,7 @@ Optional (only for `RofiPTT.sh` menu and notifications):
 ls -l /dev/input/by-id/
 ```
 
-Prefer the stable `/dev/input/by-id/*event-mouse` path instead of a raw `/dev/input/eventX` path.
+Use your mouse device path from `/dev/input/by-id/` if available.
 
 ## 5) Find your side-button key code
 ```bash
@@ -160,12 +160,6 @@ def main():
 
 if __name__ == "__main__":
     raise SystemExit(main())
-```
-
-If you are using this repo directly, you can copy the maintained version instead:
-
-```bash
-cp ./discord-ptt.py ~/.config/ptt/discord-ptt.py
 ```
 
 Make it executable:
