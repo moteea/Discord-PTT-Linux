@@ -11,11 +11,6 @@ Use this project if you want global Push-to-Talk for Discord on Linux using a mo
 - Sends your configured Discord Push-to-Talk shortcut when that button is pressed and released.
 - Runs as a user service so Discord push-to-talk is available after login.
 
-## Who this project is for
-- Linux users who want Discord Push-to-Talk to work with a mouse button or another input device.
-- Wayland users who need a workaround for unreliable Discord global PTT behavior.
-- X11 users who want a lightweight global push-to-talk setup for Discord on Linux.
-
 ## Supported environments
 - Linux
 - Wayland
