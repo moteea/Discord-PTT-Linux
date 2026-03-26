@@ -15,7 +15,7 @@ Use this project if you want global Push-to-Talk for Discord on Linux using a mo
 ## Quick start
 1. Run Discord in X11 mode so you can set the Discord Push-to-Talk keybind.
 2. Install the required packages for your Linux distribution.
-3. Build or run the Go tool.
+3. Choose either the normal install or the Nix install.
 4. Detect your input device and button with `setup`.
 5. Start the daemon so push-to-talk works while Discord is running.
 
@@ -62,7 +62,7 @@ Optional (for the Home Manager Rofi menu and notifications):
 - Fedora: `sudo dnf install rofi libnotify`
 - Arch: `sudo pacman -S rofi libnotify`
 
-### 4) Normal install
+## Normal install
 Build the binary from this repo:
 
 ```bash
@@ -83,7 +83,7 @@ Verify the install:
 ~/.local/bin/discord-ptt-go help
 ```
 
-### 5) Nix install
+## Nix install
 Build with Nix:
 
 ```bash
@@ -104,20 +104,20 @@ go run . help
 ```
 
 ## Configuration
-### 6) Run setup to detect your device and button
-Using the built binary:
+### 4) Run setup to detect your device and button
+After a normal install:
 
 ```bash
 ~/.local/bin/discord-ptt-go setup
 ```
 
-Using Nix:
+After a Nix build:
 
 ```bash
 ./result/bin/discord-ptt-go setup
 ```
 
-Or directly with Go:
+From a dev shell:
 
 ```bash
 go run . setup
@@ -125,7 +125,7 @@ go run . setup
 
 `setup` prompts for the Discord shortcut, defaults to `Shift + =`, then waits for your button press and saves the detected values.
 
-### 7) Runtime config location
+### 5) Runtime config location
 By default, the tool stores runtime state in:
 
 ```text
@@ -145,26 +145,26 @@ If you want to use another location:
 ~/.local/bin/discord-ptt-go daemon --config-dir ~/.config/ptt-go
 ```
 
-### 8) Start the daemon
-Using the built binary:
+### 6) Start the daemon
+After a normal install:
 
 ```bash
 ~/.local/bin/discord-ptt-go daemon
 ```
 
-Using Nix:
+After a Nix build:
 
 ```bash
 ./result/bin/discord-ptt-go daemon
 ```
 
-Using Go directly:
+From a dev shell:
 
 ```bash
 go run . daemon
 ```
 
-### 9) Auto-start at login (systemd user service)
+### 7) Auto-start at login (systemd user service)
 If you want it to start automatically, create `~/.config/systemd/user/discord-ptt.service`:
 
 ```ini
