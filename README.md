@@ -194,6 +194,8 @@ This repo includes a Home Manager module:
 
 `./ptt.nix`
 
+Use this if you manage your desktop setup with Home Manager and want `discord-ptt-go`, its config files, and the helper scripts installed automatically instead of building and copying the binary by hand.
+
 Add it to your Home Manager config, for example:
 
 ```nix
@@ -210,13 +212,24 @@ Apply Home Manager:
 home-manager switch
 ```
 
-This module:
+What `ptt.nix` does:
 - Builds and installs `discord-ptt-go`
 - Writes `~/.config/ptt-go/config.json`
 - Seeds `~/.config/ptt-go/config_detected.json`
 - Writes `~/.config/ptt-go/shortcut_override.json`
 - Installs `~/.config/ptt-go/PTTManager.sh`
 - Installs `~/.config/ptt-go/RofiPTT.sh`
+
+What it does not do:
+- It does not auto-detect your mouse button during `home-manager switch`
+- It does not start the daemon by itself until you run the helper scripts or wire it into your own startup flow
+
+Recommended next step after enabling the module:
+
+```bash
+~/.config/ptt-go/PTTManager.sh setup
+~/.config/ptt-go/PTTManager.sh start
+```
 
 ## Optional Rofi menu
 When using the Home Manager module, this repo generates:
